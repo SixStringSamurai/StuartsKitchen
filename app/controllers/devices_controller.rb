@@ -14,11 +14,16 @@ class DevicesController < ApplicationController
   
   
   def create
-    @ios_device = APN::Device.create(:token => params[:ios_device])    
-    unless @ios_device.save 
-      raise ApiError::InvalidDeviceParameters, @ios_device.errors.full_messages.join(",")
-    end
-    respond_with(@ios_device)
+    @ios_device = APN::Device.create(:token => params[:ios_device][:token])
+    @ios_device.save
+#    unless @ios_device.save 
+#      raise ApiError::InvalidDeviceParameters, @ios_device.errors.full_messages.join(",")
+#    end
+    respond_with(@ios_device) do |format|  #this ensures no response to creating a device
+      format.html { render :text => " " }
+      format.xml { render :text => " " }
+      format.json { render :text => " " }
+    end  
   end
 
     
