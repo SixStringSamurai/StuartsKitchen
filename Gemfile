@@ -28,12 +28,13 @@ gem 'sqlite3'
 # and rake tasks are available in development mode:
 
 group :development do
-  gem 'rspec-rails', '2.1.0'
+  gem 'rspec-rails'
 end
 
 group :test do
-  gem 'rspec', '2.1.0'
+  gem 'rspec'
   gem 'webrat', '0.7.1'
+  gem 'factory_girl_rails', '1.0'
 end
 
 gem 'apn_on_rails', :git => 'https://github.com/natescherer/apn_on_rails.git', :branch => 'rails3'  
