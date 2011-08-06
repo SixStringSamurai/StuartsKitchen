@@ -15,7 +15,7 @@ class DevicesController < ApplicationController
   
   def create
     @ios_device = APN::Device.create(:token => params[:ios_device][:token])
-    @ios_device.save
+#    @ios_device.save
 #    unless @ios_device.save 
 #      raise ApiError::InvalidDeviceParameters, @ios_device.errors.full_messages.join(",")
 #    end
