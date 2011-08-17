@@ -7,13 +7,15 @@ describe DevicesController do
     
   describe "POST 'create'" do
     
-    describe "success" do
-      it "should create a device" do
+    describe "failure" do
+      it "should not create a device" do
         lambda do
           post :create, :ios_device => {:token => " "}
         end.should_not change(APN::Device, :count)
       end
     end
+  
+    
     
     describe "success" do
       it "should create a device" do
@@ -24,9 +26,5 @@ describe DevicesController do
     end
     
   end
-  
-  
-   
-  
 end
       

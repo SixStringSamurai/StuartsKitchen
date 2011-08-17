@@ -1,6 +1,6 @@
 Skitchen::Application.routes.draw do
   
-  resources :devices
+  resources :ios_devices
     
   
 
