@@ -1,0 +1,5 @@
+<tr>
+  <td><%= link_to user.id, user_path(user) %></td>
+  <td><%= link_to user.name, user_path(user) %></td>
+  <td align="center"><%= link_to "(X_X)", user, :method => :delete, :confirm => "Delete this user?", :title => "Delete #{user.name}" %></td>
+</tr>

@@ -1,0 +1,16 @@
+<h2>Admin Index</h2>
+
+<p>Below is a table displaying all administrators. The names link to the individual admin profile pages. Click here to create a <%= link_to "new admin.", new_user_path %></p>  
+
+<center>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Delete</th>
+  </tr>
+  <% @users.each do |user| %>
+    <%= render :partial => "user", :locals => {:user => user} %>
+  <% end %>
+</table>
+</center> 

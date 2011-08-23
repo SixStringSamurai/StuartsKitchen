@@ -1,5 +1,8 @@
 class IosDevicesController < ApplicationController
   respond_to :html, :xml, :json
+  
+  before_filter :signed_in?, :except => :create
+  
 
   def index
     @ios_devices = APN::Device.all

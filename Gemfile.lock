@@ -37,6 +37,7 @@ GEM
       activesupport (= 3.0.4)
     activesupport (3.0.4)
     arel (2.0.10)
+    bcrypt-ruby (2.1.4)
     builder (2.1.2)
     configatron (2.8.2)
       yamler (>= 0.1.0)
@@ -105,6 +106,7 @@ PLATFORMS
 
 DEPENDENCIES
   apn_on_rails!
+  bcrypt-ruby
   factory_girl_rails (= 1.0)
   rails (= 3.0.4)
   rake (= 0.8.7)
