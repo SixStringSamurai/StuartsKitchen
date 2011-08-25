@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110818182359) do
+ActiveRecord::Schema.define(:version => 20110824003032) do
 
   create_table "apn_devices", :force => true do |t|
     t.string   "token",              :null => false
@@ -35,6 +35,19 @@ ActiveRecord::Schema.define(:version => 20110818182359) do
   end
 
   add_index "apn_notifications", ["device_id"], :name => "index_apn_notifications_on_device_id"
+
+  create_table "devicegroupings", :force => true do |t|
+    t.integer  "device_id"
+    t.integer  "group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"
