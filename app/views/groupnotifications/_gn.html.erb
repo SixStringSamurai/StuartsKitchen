@@ -1,0 +1,10 @@
+<tr>
+  <td><%= link_to gn.id, groupnotification_path(gn) %></td>
+  <td><%= Group.find(gn.group_id).name %></td>
+  <td><%= gn.alert %></td>
+  <% if gn.sent_at %>
+    <td><%= gn.sent_at %></td>
+  <% else %>
+    <td>not yet sent</td>
+   <% end %>
+</tr>

@@ -1,0 +1,17 @@
+<h2>Group Notification Index</h2>
+
+<p>Below is a table displaying all group notifications. Click here to create a <%= link_to "new group notification.", new_groupnotification_path %></p>  
+
+<center>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Recipient Group</th>
+    <th>Message</th>
+    <th>Sent At</th>
+  </tr>
+  <% @groupnotifications.each do |gn| %>
+    <%= render :partial => "gn", :locals => {:gn => gn} %>
+  <% end %>
+</table>
+</center> 

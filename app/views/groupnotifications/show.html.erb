@@ -1,0 +1,15 @@
+<h2>Info for Group Notification #<%= @groupnotification.id %></h2>
+<p>Click here to <%= link_to "edit this group notification.", edit_groupnotification_path %></p>
+<p>Click here to <%= link_to "delete this group notification.", @groupnotification, :method => :delete, :confirm => "Delete this group notification?", :title => "Delete #{@groupnotification.id}" %></p>
+<h3>Recipient Group:</h3>
+<p><%= Group.find(@groupnotification.group_id).name %></p>
+<h3>Sent At:</h3>
+  <% if @groupnotification.sent_at %>
+    <p><%= @groupnotification.sent_at %></p> 
+  <% else %>  
+    <p>not yet sent</p> 
+  <% end %>
+<h3>Badge:</h3>
+<p><%= @groupnotification.badge %></p>
+<h3>Alert:</h3>
+<p><%= @groupnotification.alert %></p>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110824003032) do
+ActiveRecord::Schema.define(:version => 20110826192312) do
 
   create_table "apn_devices", :force => true do |t|
     t.string   "token",              :null => false
@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(:version => 20110824003032) do
   create_table "devicegroupings", :force => true do |t|
     t.integer  "device_id"
     t.integer  "group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groupnotifications", :force => true do |t|
+    t.integer  "group_id"
+    t.boolean  "sound"
+    t.string   "alert"
+    t.integer  "badge"
+    t.datetime "sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
