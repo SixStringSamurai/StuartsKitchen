@@ -4,7 +4,12 @@ class Devicegrouping < ActiveRecord::Base
   
   attr_accessible :device_id, :group_id
   
+<<<<<<< HEAD
   validates :device_id, :numericality => true
   validates :group_id, :numericality => true
+=======
+  validates :device_id, :numericality => true
+  validates :group_id, :numericality => true
+>>>>>>> push-notifications
   
 end

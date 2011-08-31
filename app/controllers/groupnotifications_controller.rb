@@ -20,7 +20,6 @@ class GroupnotificationsController < ApplicationController
   
   def create
     @groupnotification = Groupnotification.new(params[:groupnotification])
-    @groupnotification.sound = false #default to no sound for now
     if @groupnotification.save
       redirect_to groupnotifications_path, flash[:notice] => "New group notification created!"
     else

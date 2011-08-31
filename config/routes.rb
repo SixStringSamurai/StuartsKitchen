@@ -1,5 +1,6 @@
 Skitchen::Application.routes.draw do
 
+
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in" 
 
@@ -8,8 +9,9 @@ Skitchen::Application.routes.draw do
   resources :ios_devices
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
-
+  resources :groups, :except => [:update, :edit]
   resources :groupnotifications
+
 
   root :to => "pages#home"
     
