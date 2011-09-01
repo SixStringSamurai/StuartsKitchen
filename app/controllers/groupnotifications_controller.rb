@@ -34,7 +34,7 @@ class GroupnotificationsController < ApplicationController
       redirect_to @groupnotification
     else
       @title = "Edit group notification"
-      render 'edit'\
+      render 'edit'
     end
   end
   
@@ -46,7 +46,8 @@ class GroupnotificationsController < ApplicationController
   end
    
   def send_notification
-    flash[:notice] = "Send function invoked."
+    flash[:notice] = "Send function invoked, sending notifications..."
+    #system "bundle exec rake apn:notifications:deliver RAILS_ENV=development &"
     redirect_to groupnotifications_path
   end
   
