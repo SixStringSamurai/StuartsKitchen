@@ -26,7 +26,7 @@ class Groupnotification < ActiveRecord::Base
   
   #edit individual notifications for each device in the group specified in the group notification
   def update_notifications
-    @notifications = APN::Notification.find(:all, :conditions => {:groupnotification_id => self.id})
+    @notifications = self.notifications
     @notifications.each do |n|
       n.update_attributes(:groupnotification_id => self.id, :sound => self.sound, :alert => self.alert, :badge => self.badge)
     end
@@ -34,7 +34,7 @@ class Groupnotification < ActiveRecord::Base
   
   #delete individual notifications for each device in the group specified in the group notification
   def destroy_notifications
-    @notifications = APN::Notification.find(:all, :conditions => {:groupnotification_id => self.id})
+    @notifications = self.notifications
     @notifications.each do |n|
       n.delete
     end   
