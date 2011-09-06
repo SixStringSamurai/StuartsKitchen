@@ -5,6 +5,7 @@ class Groupnotification < ActiveRecord::Base
   
   default_scope :order => 'groupnotifications.created_at DESC'
   has_many :notifications, :class_name => 'APN::Notification'
+  belongs_to :group
   
 
   attr_accessible :sound, :alert, :badge, :sent_at, :group_id

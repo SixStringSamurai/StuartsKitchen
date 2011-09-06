@@ -10,7 +10,18 @@ Skitchen::Application.routes.draw do
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :groups, :except => [:update, :edit]
-  resources :groupnotifications
+  resources :groupnotifications do
+    member do
+      get :send_notification, :as => :send_notification_for
+    end
+  end
+    
+  
+  resources :users do
+    member do #this means you are doing with a certain object
+      get :toggle_writer, :as => :toggle_writer_for # this line will generate toggle_writer_for_user_path route
+    end
+  end
 
 
   root :to => "pages#home"
