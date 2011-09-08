@@ -45,9 +45,10 @@ class GroupnotificationsController < ApplicationController
     redirect_to groupnotifications_path
   end
    
-  def send_notification
+  def dispatch_gn
     flash[:notice] = "Send function invoked, sending notifications..."
-    #system "bundle exec rake apn:notifications:deliver RAILS_ENV=development &"
+    notes = Groupnotification.find(params[:id]).notifications
+    APN::Notification.send_notifications(notes)
     redirect_to groupnotifications_path
   end
   
