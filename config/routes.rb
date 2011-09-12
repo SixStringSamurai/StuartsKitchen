@@ -10,7 +10,7 @@ Skitchen::Application.routes.draw do
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :groups, :except => [:update, :edit]
-  resources :groupnotifications do
+  resources :groupnotifications, :except => [:update, :edit] do
     member do
       get :dispatch_gn
     end

@@ -1,6 +1,8 @@
 class GroupnotificationsController < ApplicationController
 
-  before_filter :signed_in? 
+  before_filter :signed_in?
+  before_filter :timestamp_check, :only => [:index]
+   
   
   def index
     @groupnotifications = Groupnotification.all
@@ -50,6 +52,19 @@ class GroupnotificationsController < ApplicationController
     notes = Groupnotification.find(params[:id]).notifications
     APN::Notification.send_notifications(notes)
     redirect_to groupnotifications_path
+  end
+
+  def timestamp_check
+    if Groupnotification.where(:sent_at=>nil).any?
+      Groupnotification.where(:sent_at=>nil).each do |gn|
+        if gn.notifications.where(:sent_at=>nil).empty?
+          gn.update_attribute(:sent_at, gn.notifications.last.sent_at)
+          gn.notifications.each do |n|
+            n.delete
+          end
+        end
+      end
+    end
   end
   
 end

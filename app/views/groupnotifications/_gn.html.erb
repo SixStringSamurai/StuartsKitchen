@@ -3,7 +3,7 @@
   <td><%= Group.find(gn.group_id).name %></td>
   <td><%= gn.alert %></td>
   <% if gn.sent_at %>
-    <td><%= gn.sent_at %></td>
+    <td><%= gn.sent_at.localtime %></td>
   <% else %>
     <td>not yet sent</td>
    <% end %>
