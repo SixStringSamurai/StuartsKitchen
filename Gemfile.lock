@@ -1,5 +1,6 @@
-PATH
-  remote: /home/ander/.bundler/ruby/1.8
+GIT
+  remote: git@github.com:SixStringSamurai/apn_on_rails3.git
+  revision: 320cb043af8398d6b463d64951596dc5e7fae665
   specs:
     apn_on_rails (0.3.1rails3)
       configatron
