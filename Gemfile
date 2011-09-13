@@ -40,6 +40,6 @@ group :test do
   gem 'factory_girl_rails', '1.0'
 end
 
-gem 'apn_on_rails', :git => 'https://github.com/natescherer/apn_on_rails.git', :branch => 'rails3'  
-
+#gem 'apn_on_rails', :git => 'https://github.com/natescherer/apn_on_rails.git', :branch => 'rails3'  
+gem 'apn_on_rails', :path => '~/.bundler/ruby/1.8/'
 
