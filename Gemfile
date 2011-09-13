@@ -41,5 +41,5 @@ group :test do
 end
 
 #gem 'apn_on_rails', :git => 'https://github.com/natescherer/apn_on_rails.git', :branch => 'rails3'  
-gem 'apn_on_rails', :git => 'git@github.com:SixStringSamurai/apn_on_rails3.git'
+gem 'apn_on_rails', :git => 'https://SixStringSamurai@github.com/SixStringSamurai/apn_on_rails3.git'
 
