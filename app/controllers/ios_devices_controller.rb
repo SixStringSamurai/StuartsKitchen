@@ -19,6 +19,8 @@ class IosDevicesController < ApplicationController
   def create
     @ios_device = APN::Device.create(:token => params[:ios_device][:token], :device_type => params[:ios_device][:device_type])
     @ios_device.save
+    #add device automatically to the group labeled "everyone"
+    @ios_device.devicegroupings.create(:group_id=>Group.find_by_name("everyone").id)
 #    unless @ios_device.save 
 #      raise ApiError::InvalidDeviceParameters, @ios_device.errors.full_messages.join(",")
 #    end
